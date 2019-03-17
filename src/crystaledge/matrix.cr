@@ -298,6 +298,8 @@ module CrystalEdge
     {% end %}
   end
 
-  alias Matrix3 = Matrix(Float64, 3, 3)
-  alias Matrix4 = Matrix(Float64, 4, 4)
+  alias Mat3 = Matrix(Float32, 3, 3)
+  alias Mat4 = Matrix(Float32, 4, 4)
+  alias DMat3 = Matrix(Float64, 3, 3)
+  alias DMat4 = Matrix(Float64, 4, 4)
 end
