@@ -16,6 +16,11 @@ module CrystalEdge
     def initialize(@x, @y, @z : Float32)
     end
 
+    # Shorter constructor
+    def self.[](x, y, z : Number)
+      return Vec3.new(x.to_f32, y.to_f32, z.to_f32)
+    end
+
     def initialize(angle : Vec3, length : Float32 = 1.0_f32)
       vec = Vec3.new(
         Math.tan(angle.y),
@@ -23,12 +28,11 @@ module CrystalEdge
         1.0_f32
       ).normalize * length
 
-
-      #vec = Vec3.new(
+      # vec = Vec3.new(
       #  Math.sin(angle.y),
       #  Math.sin(angle.z),
       #  Math.sin(angle.x)
-      #).normalize * length
+      # ).normalize * length
       @x, @y, @z = vec.x, vec.y, vec.z
     end
 
@@ -143,8 +147,8 @@ module CrystalEdge
 
     def ==(other : self)
       (self.x - other.x).abs <= EPSILON &&
-      (self.y - other.y).abs <= EPSILON &&
-      (self.z - other.z).abs <= EPSILON
+        (self.y - other.y).abs <= EPSILON &&
+        (self.z - other.z).abs <= EPSILON
     end
 
     def !=(other : Vec3)
@@ -177,8 +181,6 @@ module CrystalEdge
     end
   end
 
-
-
   struct DVec3
     property x, y, z
 
@@ -193,6 +195,11 @@ module CrystalEdge
     def initialize(@x, @y, @z : Float64)
     end
 
+    # Shorter constructor
+    def self.[](x, y, z : Number)
+      return DVec3.new(x.to_f64, y.to_f64, z.to_f64)
+    end
+
     def initialize(angle : DVec3, length : Float64 = 1.0)
       vec = DVec3.new(
         Math.tan(angle.y),
@@ -200,12 +207,11 @@ module CrystalEdge
         1.0
       ).normalize * length
 
-
-      #vec = DVec3.new(
+      # vec = DVec3.new(
       #  Math.sin(angle.y),
       #  Math.sin(angle.z),
       #  Math.sin(angle.x)
-      #).normalize * length
+      # ).normalize * length
       @x, @y, @z = vec.x, vec.y, vec.z
     end
 
@@ -320,8 +326,8 @@ module CrystalEdge
 
     def ==(other : self)
       (self.x - other.x).abs <= EPSILON &&
-      (self.y - other.y).abs <= EPSILON &&
-      (self.z - other.z).abs <= EPSILON
+        (self.y - other.y).abs <= EPSILON &&
+        (self.z - other.z).abs <= EPSILON
     end
 
     def !=(other : DVec3)

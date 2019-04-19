@@ -16,6 +16,11 @@ module CrystalEdge
     def initialize(@x, @y, @z, @w : Float32)
     end
 
+    # Shorter constructor
+    def self.[](x, y, z, w : Number)
+      return Vec4.new(x.to_f32, y.to_f32, z.to_f32, w.to_f32)
+    end
+
     # Zero vector
     def self.zero
       return Vec4.new(0.0_f32, 0.0_f32, 0.0_f32, 0.0_f32)
@@ -132,8 +137,6 @@ module CrystalEdge
     end
   end
 
-
-
   struct DVec4
     property x, y, z, w
 
@@ -147,6 +150,11 @@ module CrystalEdge
     end
 
     def initialize(@x, @y, @z, @w : Float64)
+    end
+
+    # Shorter constructor
+    def self.[](x, y, z, w : Number)
+      return DVec4.new(x.to_f64, y.to_f64, z.to_f64, w.to_f64)
     end
 
     # Zero vector

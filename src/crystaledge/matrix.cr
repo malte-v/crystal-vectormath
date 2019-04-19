@@ -168,7 +168,7 @@ module CrystalEdge
         h.times do |c|
           cell = T.new 0
           width.times do |o|
-            cell += self[o,c] * other[r, o]
+            cell += self[o, c] * other[r, o]
           end
           result[r, c] = cell
         end

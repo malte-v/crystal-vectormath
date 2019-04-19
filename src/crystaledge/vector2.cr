@@ -16,6 +16,11 @@ module CrystalEdge
     def initialize(@x, @y)
     end
 
+    # Shorter constructor
+    def self.[](x, y : Number)
+      return Vec2.new(x.to_f32, y.to_f32)
+    end
+
     # Zero vector
     def self.zero
       return Vec2.new(0.0_f32, 0.0_f32)
@@ -164,9 +169,7 @@ module CrystalEdge
       "{X : #{x}; Y : #{y}}"
     end
   end
-  
-  
-  
+
   struct DVec2
     property x, y
     @x : Float64
@@ -179,6 +182,11 @@ module CrystalEdge
 
     # Initializes vector with `x` and `y`
     def initialize(@x, @y)
+    end
+
+    # Shorter constructor
+    def self.[](x, y : Number)
+      return DVec2.new(x.to_f64, y.to_f64)
     end
 
     # Zero vector
